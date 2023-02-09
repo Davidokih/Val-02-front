@@ -6,7 +6,7 @@ import swal from 'sweetalert';
 import { useDispatch } from 'react-redux';
 import { createUser } from './Global';
 
-const home = () => {
+const Home = () => {
 
   const [ name, setName ] = useState("");
   const dispatch = useDispatch();
@@ -57,7 +57,7 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;
 
 const Container = styled.div`
 width: 100%;
