@@ -7,20 +7,20 @@ const PairedUser = ({ pairName, pair }) => {
 
     const [ pairedData, setPairedWith ] = useState({});
 
-    const user = useSelector((state) => state.namePair);
+    const user = useSelector((state) => state.pairedWith);
     const URL = "http://localhost:1111";
     const webURL = "https://valentian-app.onrender.com";
     // const userID = pairName;
     const getPairUser = () => {
-        axios.get(`${webURL}/api/user/${pair._id}/${pairName}`).then((res) => {
+        axios.get(`${webURL}/api/user/${user._id}/${pairName}`).then((res) => {
             console.log(res.data);
             setPairedWith(res.data.data);
         }).catch((err) => {
             console.log(err);
         });
     };
-    console.log(pairName);
     console.log(pairedData);
+    console.log(user);
 
     useEffect(() => {
         getPairUser();

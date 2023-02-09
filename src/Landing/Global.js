@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    namePair: null
+    pair: null,
+    pairedWith: null
 };
 
 const Global = createSlice({
@@ -9,12 +10,15 @@ const Global = createSlice({
     initialState,
     reducers: {
         createUser: (state, { payload }) => {
-            state.namePair = payload;
+            state.pair = payload;
+        },
+        createPair: (state, { payload }) => {
+            state.pairedWith = payload;
         }
     }
 });
 
-export const { createUser } = Global.actions;
+export const { createUser, createPair } = Global.actions;
 
 export default Global.reducer;
 

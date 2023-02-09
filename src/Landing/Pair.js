@@ -9,51 +9,51 @@ const Pair = () => {
 
   // const { id } = useParams();
   const [ pairName, setPair ] = useState({});
-  const user = useSelector((state) => state.namePair);
+  const user = useSelector((state) => state.pairedWith);
   // console.log(id);
   const URL = "http://localhost:1111";
   const webURL = "https://valentian-app.onrender.com";
 
-  const pairUser = () => {
+  // const pairUser = () => {
 
-    axios.patch(`${webURL}/api/user/${user._id}/pair`).then((res) => {
+  //   axios.patch(`${webURL}/api/user/${user._id}/pair`).then((res) => {
 
-      setPair(res.data);
-      alert(res.data.message);
-      console.log(res.data.message);
-    }).catch((err) => {
-      alert(err.message);
-    });
-  };
+  //     setPair(res.data);
+  //     alert(res.data.message);
+  //     console.log(res.data.message);
+  //   }).catch((err) => {
+  //     alert(err.message);
+  //   });
+  // };
 
-  const getPair = () => {
+  // const getPair = () => {
 
-    axios.get(`${webURL}/api/user/${pairName._id}`).then((res) => {
-      // console.log(res.data);
-      setPair(res.data.data);
-    }).catch((err) => {
-      console.log(err.message);
-    });
-  };
+  //   axios.get(`${webURL}/api/user/${user._id}`).then((res) => {
+  //     // console.log(res.data);
+  //     setPair(res.data.data);
+  //   }).catch((err) => {
+  //     console.log(err.message);
+  //   });
+  // };
 
 
-  useEffect(() => {
-    getPair();
-  }, []);
+  // useEffect(() => {
+  //   getPair();
+  // }, []);
 
-  console.log(pairName);
+  console.log(user);
 
   return (
     <div>
       <Container>
         <Card>
           🤍🤍🤍🤍
-          <Name>{ pairName.name }</Name>
+          <Name>{ user.name }</Name>
           <span>you are paired to</span>
-          <Name1><PairedUser pairName={ pairName.pair[ 0 ] } pair={ pairName } pairWith /></Name1>
+          <Name1><PairedUser pairName={ user.pair[ 0 ] } pair={ user } pairWith /></Name1>
           🤍🤍🤍🤍
         </Card>
-        <button onClick={ pairUser }>Pair</button>
+        {/* <button onClick={ pairUser }>Pair</button> */ }
       </Container>
     </div>
   );

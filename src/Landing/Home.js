@@ -5,11 +5,13 @@ import axios from 'axios';
 import swal from 'sweetalert';
 import { useDispatch } from 'react-redux';
 import { createUser } from './Global';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
 
   const [ name, setName ] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const URL = "http://localhost:1111";
   const webURL = "https://valentian-app.onrender.com";
 
@@ -29,14 +31,6 @@ const Home = () => {
       button: "Ok",
     });
   };
-
-
-  // useEffect(() => {
-  //   axios.get(`${URL}/get`).then((res) => {
-  //     console.log(res);
-  //   });
-  // console.log(pair);
-  // }, []);
 
   return (
     <div>
@@ -61,7 +55,7 @@ export default Home;
 
 const Container = styled.div`
 width: 100%;
-height: calc(100vh - 70px);
+height: 100vh;
 /* background-color: red; */
 background-image: url("/image/love.jpg");
 background-repeat: no-repeat;
